@@ -13,7 +13,7 @@ process.stdin.setEncoding('utf8');
 
 if (input && output) {
   readStream = fs.createReadStream(input);
-  outputStream = fs.createWriteStream(output);
+  outputStream = fs.createWriteStream(output, { flags: 'a+' });
 } else if (input && !output) {
   readStream = fs.createReadStream(input);
   outputStream = process.stdout;
