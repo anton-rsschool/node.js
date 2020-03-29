@@ -26,7 +26,8 @@ exports.processingOptions = () => {
   };
 
   const validateInput = value => {
-    if (!fs.existsSync(value)) {
+    const isNotFile = !fs.existsSync(value) || !fs.statSync(value).isFile();
+    if (isNotFile) {
       console.error(`Error: '-i, --input <path>' '${value}': file not found.`);
       process.exit(1);
     }
@@ -40,7 +41,8 @@ exports.processingOptions = () => {
   };
 
   const validateOutput = value => {
-    if (!fs.existsSync(value)) {
+    const isNotFile = !fs.existsSync(value) || !fs.statSync(value).isFile();
+    if (isNotFile) {
       console.error(`Error: '-o, --output <path>' '${value}': file not found.`);
       process.exit(1);
     }

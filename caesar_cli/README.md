@@ -35,3 +35,9 @@ node caesar
 ```
 node caesar -s 5 -a encode -i input.txt -o output.txt
 ```
+
+### Exit
+
+```
+ctr + c
+```
